@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Options {
+        constructor (height='200px', width='200px', bg='blue', fontSize='14', textAlign='center') {
+            this.height = height;
+            this.width = width;
+            this.bg = bg;
+            this.fontSize = fontSize;
+            this.textAlign = textAlign;           
+        }
+        show() {
+            let div = document.createElement('div');                        
+            div.style.height = this.height;
+            div.style.width = this.width;
+            div.style.backgroundColor = this.bg;
+            div.style.fontSize = this.fontSize;
+            div.style.textAlign = this.textAlign;
+            document.body.appendChild(div);
+        }
+    }
+    
+   const optionsTwo = new Options("100px", "100px", 'red');
+   optionsTwo.show();
+
+
+ 
+    </script>
+</body>
+</html>
