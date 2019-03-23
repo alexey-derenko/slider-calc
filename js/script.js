@@ -150,10 +150,6 @@ window.addEventListener('DOMContentLoaded', () => {
         showSlides(slideIndex);
 
         function showSlides(n) {
-            slides.forEach( (item) => item.style.display = 'none' );
-            dots.forEach( (item) => item.classList.remove('dot-active') );
-            slides[slideIndex - 1].style.display= 'block';
-            dots[slideIndex - 1].classList.add('dot-active');
 
             if (n > slides.length) {
                 slideIndex = 1;
@@ -161,6 +157,12 @@ window.addEventListener('DOMContentLoaded', () => {
             if (n < 1) {
                 slideIndex = slides.length;
             }
+
+            slides.forEach((item) => item.style.display = 'none');
+            dots.forEach((item) => item.classList.remove('dot-active'));
+            slides[slideIndex - 1].style.display = 'block';
+            dots[slideIndex - 1].classList.add('dot-active');
+           
         }
 
         function plusSlides(n) {
@@ -187,9 +189,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     
     // calc
-
-    // let persons = document.querySelectorAll()
-
 
    
     let persons = document.querySelectorAll('.counter-block-input')[0],
@@ -231,7 +230,7 @@ window.addEventListener('DOMContentLoaded', () => {
             daysSum = +this.value;
             total = (daysSum + personsSum)*4000;
      
-            if (persons.value == '' || restDays.value == '')  {
+            if (persons.value == '' || restDays.value == '' || persons.value == '0' || restDays.value == '0')  {
                 totalValue.innerHTML = 0;
 
             } else {
@@ -242,7 +241,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         place.addEventListener('change', function() {
-            if (restDays.value == '' || persons.value == '') {
+            if (restDays.value == '' || persons.value == ''|| persons.value == '0' || restDays.value == '0') {
                 totalValue.innerHTML = 0;
             } else {
                 let a = total;
